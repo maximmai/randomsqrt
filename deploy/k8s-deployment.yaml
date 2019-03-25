@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: randomsqrt-deployment
+  labels:
+    app: randomsqrt
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: randomsqrt
+  template:
+    metadata:
+      labels:
+        app: randomsqrt
+    spec:
+      containers:
+      - name: randomsqrt
+        image: maximmai/randomsqrt:latest
+        resources:
+          limits:
+            cpu: "1"
+          requests:
+            cpu: "0.5"
+        ports:
+        - containerPort: 3000
