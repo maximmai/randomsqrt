@@ -14,6 +14,7 @@ or alternatively, make a HPA deployment
 cd deploy
 kubectl apply -f k8s-deployment.yaml
 kubectl expose deployment randomsqrt-deployment --type=LoadBalancer --name=randomsqrt-service
+kubectl expose deployment randomsqrt-deployment --type=NodePort --name=randomsqrt-service
 kubectl autoscale deployment randomsqrt-deployment --cpu-percent=50 --min=3 --max=12 --name=randomsqrt-hpa
 ```
 
